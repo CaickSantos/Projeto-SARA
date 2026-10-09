@@ -1,0 +1,156 @@
+================================================================================
+  S.A.R.A.  -  Sistema de Análise e Rastreamento de Anomalias
+  CHANGELOG
+================================================================================
+
+  Todas as mudanças notáveis do projeto estão documentadas neste arquivo.
+
+  Formato baseado em Keep a Changelog (keepachangelog.com).
+  Versionamento Semântico (semver.org):
+    MAJOR - mudanças incompatíveis na API ou no formato do .db
+    MINOR - funcionalidades novas, mantendo compatibilidade
+    PATCH - correções de bugs sem mudança funcional
+
+--------------------------------------------------------------------------------
+  [4.0.0]  -  2026-09-28
+--------------------------------------------------------------------------------
+
+  ADICIONADO
+    - Cobertura completa dos requisitos de paradigmas exigidos.
+    - 8 operações de agregação migradas para o paradigma funcional
+      (std::accumulate, std::count_if, std::transform, std::max_element).
+    - Funções puras auxiliares: ehRiscoCritico, ehRiscoAlto, temCasosAtivos.
+    - Loop principal do menu convertido para do-while.
+    - Segundo do-while no menu de exportação (confirmação).
+    - Base de exemplo com dados de 2026.
+    - Populações conforme o Censo 2022 (IBGE).
+    - 5 bairros: Benedito Bentes, Tabuleiro do Martins, Ponta Verde,
+      Pajuçara, Centro.
+    - 4 patologias: Dengue, Zika, Chikungunya, Covid-19.
+    - 5 semanas epidemiológicas de histórico (2026-W35 a 2026-W39).
+    - Arquivo README.txt em formato ASCII puro.
+    - Arquivo CHANGELOG.txt.
+
+  ALTERADO
+    - Base de exemplo expandida de 3 para 5 bairros.
+    - Distribuição de risco cobre as 4 faixas.
+    - Média móvel reformulada usando accumulate sobre vetor auxiliar.
+    - totalCasosAtuais, totalHistorico, tendencia, totalPopulacao,
+      totalCasosAtivos e countRisco migrados para a STL funcional.
+
+--------------------------------------------------------------------------------
+  [3.1.0]  -  2026-09-27
+--------------------------------------------------------------------------------
+
+  ADICIONADO
+    - Import em batch via CSV.
+    - Gráfico ASCII de série temporal no terminal.
+    - Backup automático antes de cada gravação (sara.db.bak).
+    - Comparação de semanas com setas direcionais e delta absoluto.
+    - Tratamento de exceções em conversão de string para inteiro.
+    - Modo batch via linha de comando (--batch, --help).
+    - Parser seguro de inteiros (stoiSeguro).
+    - Arquivo README inicial.
+
+  ALTERADO
+    - exibirRelatorio passa a mostrar delta absoluto, além do percentual.
+    - Exemplo inicial expandido para 3 bairros x 4 semanas.
+    - Estrutura do main reorganizada para aceitar argumentos.
+
+  CORRIGIDO
+    - C4996: substituição de localtime por localtime_s (MSVC)
+      e localtime_r (POSIX).
+    - VCR003: funções livres movidas para namespace anônimo.
+
+--------------------------------------------------------------------------------
+  [3.0.0]  -  2026-09-25
+--------------------------------------------------------------------------------
+
+  ADICIONADO
+    - Renomeação do sistema para S.A.R.A.
+      (Sistema de Análise e Rastreamento de Anomalias).
+    - Persistência automática em sara.db.
+    - Validação robusta de entrada (lerInt com limites, lerLinha sem
+      string vazia).
+    - Bloqueio de duplicação de bairros.
+    - Patologias dinâmicas (qualquer doença pode ser registrada).
+    - Série temporal semanal por bairro e patologia.
+    - Média móvel de 4 semanas.
+    - Taxa de crescimento percentual.
+    - Classificação de risco em 4 faixas OMS:
+      Baixo / Médio / Alto / Crítico.
+    - Exportadores: CSV, Mermaid, JSON, Relatório Executivo.
+    - Dashboard em tempo real com contadores por categoria.
+    - Menu de remoção de bairro.
+    - Cadastro de patologia genérica.
+
+  ALTERADO
+    - Arquitetura migrada para POO consistente:
+      RegistroDoenca, Bairro, SARA.
+    - Separação entre lógica de domínio (Bairro) e gestão de estado (SARA).
+    - Formato do arquivo .db reescrito para texto plano com delimitador |.
+    - Grafo Mermaid com cor por categoria de risco.
+
+--------------------------------------------------------------------------------
+  [2.2.0]  -  2026-09-23
+--------------------------------------------------------------------------------
+
+  CORRIGIDO
+    - VCR003: funções movidas para namespace anônimo.
+    - Adicionado #define _CRT_SECURE_NO_WARNINGS no topo para MSVC.
+
+  ALTERADO
+    - Ordem do arquivo reorganizada: enum -> namespace -> classes -> main.
+    - semanaAtual() usa #ifdef _WIN32 para escolher entre localtime_s
+      e localtime_r.
+
+--------------------------------------------------------------------------------
+  [2.1.0]  -  2026-09-22
+--------------------------------------------------------------------------------
+
+  CORRIGIDO
+    - C4996: substituição de localtime por variante segura.
+
+--------------------------------------------------------------------------------
+  [2.0.0]  -  2026-09-21
+--------------------------------------------------------------------------------
+
+  ADICIONADO
+    - Versão inicial do sistema de monitoramento epidemiológico.
+    - Classes Bairro e RegistroDoenca.
+    - Cálculo de incidência por 100 mil habitantes.
+    - Alerta binário de surto (incidência > 100).
+    - Ranking ordenado por incidência.
+    - Exportação para CSV (Base_IBGE_Surtos.csv).
+    - Exportação para grafo Mermaid (Grafo_Epidemiologico.md).
+    - Menu com 5 opções: censo, triagem, painel, exportar, sair.
+    - Cadastro fixo de 3 patologias: Dengue, Zika, Covid-19.
+
+  NOTAS
+    - Sem persistência entre execuções.
+    - Sem validação robusta de entrada.
+    - Patologias fixas em código.
+    - Sem métricas de tendência.
+
+--------------------------------------------------------------------------------
+  FORMATO DAS VERSÕES
+--------------------------------------------------------------------------------
+
+  Este projeto segue Versionamento Semântico:
+
+    MAJOR   mudanças incompatíveis na API ou no formato do .db
+    MINOR   funcionalidades novas, mantendo compatibilidade
+    PATCH   correções de bugs sem mudança funcional
+
+  Tipos de mudança:
+
+    ADICIONADO     funcionalidades novas
+    ALTERADO       mudanças em funcionalidades existentes
+    DESCONTINUADO  funcionalidades que serão removidas
+    REMOVIDO       funcionalidades removidas nesta versão
+    CORRIGIDO      correções de bugs
+    SEGURANÇA      vulnerabilidades corrigidas
+
+================================================================================
+  FIM
+================================================================================

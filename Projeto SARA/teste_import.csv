@@ -1,0 +1,46 @@
+# ============================================================
+# TESTE DE IMPORTACAO - SARA
+# ============================================================
+# Formato:
+#   bairro,populacao              -> cadastra bairro
+#   bairro,patologia,semana,casos -> registra caso
+# Linhas com # sao ignoradas
+# ============================================================
+
+# --- Cadastro de bairros (populacao Censo 2022 - IBGE) ---
+Vicente Pinzon,45000
+Cidade Universitaria,52000
+Feitosa,38000
+
+# --- Dengue ---
+Vicente Pinzon,Dengue,2026-W35,12
+Vicente Pinzon,Dengue,2026-W36,15
+Vicente Pinzon,Dengue,2026-W37,18
+Vicente Pinzon,Dengue,2026-W38,22
+Vicente Pinzon,Dengue,2026-W39,27
+
+Cidade Universitaria,Dengue,2026-W35,35
+Cidade Universitaria,Dengue,2026-W36,42
+Cidade Universitaria,Dengue,2026-W37,55
+Cidade Universitaria,Dengue,2026-W38,70
+Cidade Universitaria,Dengue,2026-W39,95
+
+Feitosa,Dengue,2026-W35,8
+Feitosa,Dengue,2026-W36,9
+Feitosa,Dengue,2026-W37,10
+Feitosa,Dengue,2026-W38,11
+Feitosa,Dengue,2026-W39,10
+
+# --- Zika ---
+Vicente Pinzon,Zika,2026-W35,2
+Vicente Pinzon,Zika,2026-W36,3
+Vicente Pinzon,Zika,2026-W37,2
+Vicente Pinzon,Zika,2026-W38,4
+Vicente Pinzon,Zika,2026-W39,3
+
+# --- Chikungunya ---
+Cidade Universitaria,Chikungunya,2026-W35,5
+Cidade Universitaria,Chikungunya,2026-W36,7
+Cidade Universitaria,Chikungunya,2026-W37,9
+Cidade Universitaria,Chikungunya,2026-W38,12
+Cidade Universitaria,Chikungunya,2026-W39,15

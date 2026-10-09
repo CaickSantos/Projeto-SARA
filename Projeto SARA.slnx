@@ -1,0 +1,8 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Itens de Solução/" />
+  <Project Path="Projeto SARA/Projeto SARA.vcxproj" Id="cbe6eba2-cb47-4eb6-bad6-09c8242cd90a" />
+</Solution>
